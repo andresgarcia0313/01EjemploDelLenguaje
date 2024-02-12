@@ -568,3 +568,4 @@ Account{name=..., path=..., type=PREDICT}
 2024-02-12 12:02:53.680 [pool-3-thread-1] WARN  com.rs.mv.mvvs.rmv.config.ConfigManager - [COMMON:500102]file(C:/Archivos/Desarrollo/Multilenguaje/01EjemploDelLenguaje/.rmv/config/db.mvbasic.json}) is not exist
 2024-02-12 12:02:53.681 [pool-3-thread-1] INFO  com.rs.mv.mvvs.common.convertor.ConvertorManager - [framework:30030201]convertors for folder(C:/Archivos/Desarrollo/Multilenguaje/01EjemploDelLenguaje) reload start
 2024-02-12 12:02:53.682 [pool-3-thread-1] INFO  com.rs.mv.mvvs.common.convertor.ConvertorManager - [framework:30030202]convertors for folder(C:/Archivos/Desarrollo/Multilenguaje/01EjemploDelLenguaje) load end
+2024-02-12 12:03:49.732 [pool-3-thread-1] INFO  com.rs.mv.mvvs.client.catalog.from.scan.CurrentPathScanner - [client:400205]scan file in current open file directory(C:/Archivos/Desarrollo/Multilenguaje/01EjemploDelLenguaje)
