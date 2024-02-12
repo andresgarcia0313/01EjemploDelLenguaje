@@ -10,9 +10,10 @@ class Animal {
 }
 
 class Perro extends Animal {// Definición de la clase Perro, que copia o "hereda" de la clase Animal las funciones y propiedades
-  constructor(nombre, edad, raza) {
+  constructor(nombre, edad, raza, precio) {// Método constructor para inicializar las propiedades de un objeto
     super(nombre, edad);
     this.raza = raza;
+    this.precio = precio;
   }
   ladrar() {// Método o función para ladrar por que los perros tienen esa funcionalidad!!!
     return "¡Guau!"; // Retorna el ladrido del perro
@@ -21,17 +22,52 @@ class Perro extends Animal {// Definición de la clase Perro, que copia o "hered
     return `${super.describir()} Soy un perro de raza ${this.raza}.`; // Retorna el texto de la descripción del perro y usa el método describir de la clase padre
   }
 }
+// Definición de la clase PerrosTienda para gestionar la tienda de perros
+class PerrosTienda {
+  constructor() {
+    this.perros = []; // Inicialmente la tienda no tiene perros
+  }  
+  contarPerros() {// Método para contar la cantidad total de perros en la tienda
+    return this.perros.length;
+  }
+  agregarPerro(perro) {// Método para agregar un nuevo perro a la tienda
+    this.perros.push(perro);
+  }
+}
+
+class Facturar {
+  constructor() {
+    this.perros = []; // Initially, the facturar has no dogs
+  }
+  comprarPerro(perro) {
+    this.perros.push(perro);
+  }
+
+  comprarPerros(perros) {
+    this.perros = this.perros.concat(perros);
+  }
+  obtenerTotal() {
+    let total = 0;
+    for (let perro of this.perros) {
+      total += perro.precio;
+    }
+    return total;
+  }
+  obtenerPerros() {
+    return this.perros;
+  }
+}
+
 
 // Algoritmo para encontrar el perro más viejo en un arreglo de perros
 function encontrarPerroMasViejo(perros) {// Función que recibe un arreglo de perros y retorna el perro más viejo y esta por fuera de una clase
   let perroMasViejo = perros[0];// Inicialmente el perro más viejo es el primero elemento de la lista o array de perros recibida
-  for (let perro of perros) { // Recorre cada perro en la lista de perros
-    if (perro.edad > perroMasViejo.edad) { // Realiza una comparación de mayor que en donde si la edad del perro actual es mayor que la edad del perro más viejo
+  for (let perro of perros) // Recorre cada perro en la lista de perros
+    if (perro.edad > perroMasViejo.edad)  // Realiza una comparación de mayor que en donde si la edad del perro actual es mayor que la edad del perro más viejo
       perroMasViejo = perro; // Asigna el perro actual dentro de la variable como el perro más viejo
-    }
-  }
   return perroMasViejo; // Retorna el perro más viejo encontrado por fuera de la función 
 }
+
 
 // Función para imprimir la descripción de cada perro en una lista
 function imprimirPerros(perros) {
@@ -41,31 +77,21 @@ function imprimirPerros(perros) {
   }
 }
 
-// Definición de la clase PerrosTienda para gestionar la tienda de perros
-class PerrosTienda {
-  constructor() {
-    this.perros = []; // Inicialmente la tienda no tiene perros
-  }
-
-  // Método para contar la cantidad total de perros en la tienda
-  contarPerros() {
-    return this.perros.length;
-  }
-
-  // Método para agregar un nuevo perro a la tienda
-  agregarPerro(perro) {
-    this.perros.push(perro);
-  }
-}
 
 // Creación de una instancia de PerrosTienda
 const tiendaDePerros = new PerrosTienda();
 
-// Agregar algunos perros a la tienda
-tiendaDePerros.agregarPerro(new Perro("Firulais", 3, "Labrador"));
-tiendaDePerros.agregarPerro(new Perro("Rex", 5, "Pastor Alemán"));
-tiendaDePerros.agregarPerro(new Perro("Bobby", 7, "Chihuahua"));
 
+// Agregar algunos perros a la tienda
+
+const objPerro = new Perro("Firulais", 3, "Labrador", 1000);
+tiendaDePerros.agregarPerro(objPerro);
+tiendaDePerros.agregarPerro(new Perro("Rex", 5, "Pastor Alemán", 1500));
+tiendaDePerros.agregarPerro(new Perro("Bobby", 7, "Chihuahua", 500));
+
+let myarray=[];
+//Imprimir los metodos de la variable myarray
+console.log(Object.getOwnPropertyNames(myarray));
 // Uso del algoritmo para encontrar el perro más viejo
 const perroMasViejo = encontrarPerroMasViejo(tiendaDePerros.perros);
 
@@ -80,3 +106,10 @@ imprimirPerros(tiendaDePerros.perros);
 
 // Contar la cantidad total de perros en la tienda
 console.log(`Total de perros en la tienda: ${tiendaDePerros.contarPerros()}`);
+
+//ANALISIS DE OBJETOS Y SUS TIPO
+//Muestra el tipo de objeto
+console.log(typeof objPerro);
+//Consultar a partir del objeto el nombre de la clase de la cual se instancio
+console.log(objPerro.constructor.name);
+
